@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fefae0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.icon-row {
+    display: flex;
+    gap: 30px; /* Increase space between concepts */
+    padding: 30px; /* Add padding to make the bar larger */
+    background: #fff;
+    border-radius: 20px; /* Larger rounding for a modern design */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    width: 90%; /* Bar width spans most of the screen */
+    max-width: 1200px; /* Limit max width */
+    justify-content: space-around; /* Distribute items evenly */
+}
+
+.icon-container {
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    flex: 1; /* Equal width for all concepts */
+    padding: 20px; /* Larger clickable area */
+    border-radius: 15px;
+}
+
+.icon-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add hover shadow */
+}
+
+.icon {
+    width: 60px; /* Increase logo size */
+    height: 60px;
+    margin-bottom: 12px;
+}
+
+.icon-label {
+    font-size: 16px; /* Larger text size */
+    color: white; /* Contrast text for colorful backgrounds */
+}
