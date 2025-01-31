@@ -9,8 +9,16 @@ import uxLogo from "./Assets/Logos/ux.png"
 
 const App = () => {
   const [modalContent, setModalContent] = useState(null);
+  const [startPosition, setStartPosition] = useState(null);
 
-  const handleConceptClick = (label, explanation) => {
+  const handleConceptClick = (label, explanation, element) => {
+      const rect = element.getBoundingClientRect();
+      setStartPosition({
+          width: rect.width,
+          height: rect.height,
+          top: rect.top,
+          left: rect.left,
+      });
       setModalContent({ label, explanation });
   };
 
@@ -19,60 +27,68 @@ const App = () => {
   };
 
   return (
-      <div className="icon-row">
-          {/* Render concepts with dynamic background colors */}
-          <IconWithText
-              logo={agilityLogo}
-              label="Agility"
-              backgroundColor="#F26619" // Assign color from palette
-              onClick={() =>
+      <div className="screen-container">
+          <div
+              className="section"
+              style={{ backgroundColor: "#F26619" }}
+              onClick={(e) =>
                   handleConceptClick(
                       "Agility",
-                      "Agility is about being flexible and quick in software development..."
+                      "Agility is about being flexible and quick in software development...",
+                      e.currentTarget
                   )
               }
-          />
-          <IconWithText
-              logo={versionControlLogo}
-              label="Version Control"
-              backgroundColor="#2F4558" // Assign color from palette
-              onClick={() =>
+          >
+              <IconWithText logo={agilityLogo} label="Agility" />
+          </div>
+          <div
+              className="section"
+              style={{ backgroundColor: "#2F4558" }}
+              onClick={(e) =>
                   handleConceptClick(
                       "Version Control",
-                      "Version control helps track and manage code changes in a collaborative environment..."
+                      "Version control helps track and manage code changes...",
+                      e.currentTarget
                   )
               }
-          />
-          <IconWithText
-              logo={testingLogo}
-              label="Testing"
-              backgroundColor="#55D5E0" // Assign color from palette
-              onClick={() =>
+          >
+              <IconWithText logo={versionControlLogo} label="Version Control" />
+          </div>
+          <div
+              className="section"
+              style={{ backgroundColor: "#55D5E0" }}
+              onClick={(e) =>
                   handleConceptClick(
                       "Testing",
-                      "Testing ensures that software is reliable and works as intended..."
+                      "Testing ensures that software is reliable and works as intended...",
+                      e.currentTarget
                   )
               }
-          />
-          <IconWithText
-              logo={uxLogo}
-              label="UX Design"
-              backgroundColor="#F4CFDF" // Assign color from palette
-              onClick={() =>
+          >
+              <IconWithText logo={testingLogo} label="Testing" />
+          </div>
+          <div
+              className="section"
+              style={{ backgroundColor: "#F4CFDF" }}
+              onClick={(e) =>
                   handleConceptClick(
                       "UX Design",
-                      "User Experience (UX) design focuses on creating software that is easy and enjoyable to use..."
+                      "UX Design focuses on creating software that is easy and enjoyable to use...",
+                      e.currentTarget
                   )
               }
-          />
+          >
+              <IconWithText logo={uxLogo} label="UX Design" />
+          </div>
 
           {/* Modal */}
-          {modalContent && (
+          {modalContent && startPosition && (
               <Modal
                   isOpen={!!modalContent}
                   onClose={closeModal}
                   title={modalContent.label}
                   content={<p>{modalContent.explanation}</p>}
+                  startPosition={startPosition}
               />
           )}
       </div>
