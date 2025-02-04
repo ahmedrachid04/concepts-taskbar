@@ -6,7 +6,7 @@ import agilityLogo from "./Assets/Logos/agile.png"
 import versionControlLogo from "./Assets/Logos/git.png"
 import testingLogo from "./Assets/Logos/test.png"
 import uxLogo from "./Assets/Logos/ux.png"
-import gitvid from "./Assets/exps/git.mp4"
+import gitvid from "./Assets/exps/gitexp.mp4"
 
 const App = () => {
     const [modalContent, setModalContent] = useState(null);
