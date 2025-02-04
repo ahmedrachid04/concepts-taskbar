@@ -1,8 +1,17 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "../Assets/styles/modal.css";
+import { useEffect, useRef } from "react";
 
-const Modal = ({ isOpen, onClose, title, content, startPosition }) => {
+const Modal = ({ isOpen, onClose, title, content, videoSrc, startPosition }) => {
+    const videoRef = useRef(null); // Reference for the video element
+
+    useEffect(() => {
+        if (isOpen && videoRef.current) {
+            videoRef.current.play(); // Play the video when modal is opened
+        }
+    }, [isOpen]); // Runs every time isOpen changes
+
     return (
         <AnimatePresence>
             {isOpen && (
@@ -29,7 +38,7 @@ const Modal = ({ isOpen, onClose, title, content, startPosition }) => {
                         height: startPosition.height,
                         top: startPosition.top,
                         left: startPosition.left,
-                        opacity: 0,
+                        opacity: 0.8,
                         position: "absolute",
                     }}
                     transition={{
@@ -45,15 +54,21 @@ const Modal = ({ isOpen, onClose, title, content, startPosition }) => {
                         exit={{ opacity: 0, scale: 0.8 }}
                         transition={{
                             duration: 0.3,
-                            ease: "easeInOut",
+                            delay: 0.3,
                         }}
-                        onClick={(e) => e.stopPropagation()} // Prevent close on modal content click
+                        onClick={(e) => e.stopPropagation()}
                     >
                         <button className="modal-close" onClick={onClose}>
                             &times;
                         </button>
                         <h3>{title}</h3>
                         <p>{content}</p>
+                        
+                        {/* Video with autoplay */}
+                        <video ref={videoRef} controls autoPlay>
+                            <source src={videoSrc} type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
                     </motion.div>
                 </motion.div>
             )}
