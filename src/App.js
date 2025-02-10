@@ -6,7 +6,10 @@ import agilityLogo from "./Assets/Logos/agile.png"
 import versionControlLogo from "./Assets/Logos/git.png"
 import testingLogo from "./Assets/Logos/test.png"
 import uxLogo from "./Assets/Logos/ux.png"
-import gitvid from "./Assets/exps/gitexp.mp4"
+import gitvid from "./Assets/exps/git.mp4"
+import ux from "./Assets/exps/UX.mp4"
+import qa from "./Assets/exps/qa.mp4"
+import agile from "./Assets/exps/agile.mp4"
 
 const App = () => {
     const [modalContent, setModalContent] = useState(null);
@@ -40,7 +43,7 @@ const App = () => {
                     handleConceptClick(
                         "Agility",
                         "Agility is about being flexible and quick in software development...",
-                        gitvid,
+                        agile,
                         e.currentTarget
                     )
                 }
@@ -68,7 +71,7 @@ const App = () => {
                     handleConceptClick(
                         "Testing",
                         "Testing ensures that software is reliable and works as intended...",
-                        gitvid,
+                        qa,
                         e.currentTarget
                     )
                 }
@@ -82,7 +85,7 @@ const App = () => {
                     handleConceptClick(
                         "UX Design",
                         "UX Design focuses on creating software that is easy and enjoyable to use...",
-                        gitvid,
+                        ux,
                         e.currentTarget
                     )
                 }
