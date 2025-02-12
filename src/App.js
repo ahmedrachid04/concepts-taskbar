@@ -99,10 +99,14 @@ const App = () => {
         onClose={closeModal}
         title={modalContent.label}
         content={<p>{modalContent.explanation}</p>}
-        videoSrc={modalContent.video} // Pass video source to modal
+        videoSrc={modalContent.video}
         startPosition={startPosition}
     />
 )}
+<div className="watermark-container">
+    <p>Developed by Ahmed RACHID</p>
+</div>
+
 
         </div>
     );

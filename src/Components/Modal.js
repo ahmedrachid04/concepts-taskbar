@@ -4,13 +4,13 @@ import "../Assets/styles/modal.css";
 import { useEffect, useRef } from "react";
 
 const Modal = ({ isOpen, onClose, title, content, videoSrc, startPosition }) => {
-    const videoRef = useRef(null); // Reference for the video element
+    const videoRef = useRef(null); 
 
     useEffect(() => {
         if (isOpen && videoRef.current) {
-            videoRef.current.play(); // Play the video when modal is opened
+            videoRef.current.play(); 
         }
-    }, [isOpen]); // Runs every time isOpen changes
+    }, [isOpen]); 
 
     return (
         <AnimatePresence>
@@ -64,8 +64,8 @@ const Modal = ({ isOpen, onClose, title, content, videoSrc, startPosition }) => 
                         <h3>{title}</h3>
                         <p>{content}</p>
                         
-                        {/* Video with autoplay */}
-                        <video ref={videoRef} controls autoPlay>
+                        
+                        <video ref={videoRef} controls  onEnded={() => setTimeout(onClose, 500)} autoPlay>
                             <source src={videoSrc} type="video/mp4" />
                             Your browser does not support the video tag.
                         </video>

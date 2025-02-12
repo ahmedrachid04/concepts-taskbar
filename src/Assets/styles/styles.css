@@ -10,12 +10,12 @@ body {
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 100vh; /* Full screen height */
+    height: 100vh; 
     overflow: hidden;
 }
 
 .section {
-    flex: 1; /* Each section takes up equal space */
+    flex: 1; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,8 +26,8 @@ body {
 
 .icon-container {
     text-align: center;
-    width: 150px; /* Icon container width */
-    height: 150px; /* Icon container height */
+    width: 150px; 
+    height: 150px; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,18 +35,18 @@ body {
 }
 
 .section:hover {
-    transform: scale(1.1); /* Slight scaling on hover */
+    transform: scale(1.1); 
 }
 
 .icon {
-    width: 80px; /* Adjust logo size */
+    width: 80px; 
     height: 80px;
     margin-bottom: 12px;
 }
 
 .icon-label {
     font-size: 16px;
-    color: white; /* Text color for contrast */
+    color: white; 
 }
 @media (max-width: 768px) {
     .screen-container {
@@ -58,4 +58,14 @@ body {
     font-weight: 1000;
     font-style: bold;
   }
-  
+  .watermark-container {
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    text-align: left;
+    margin-left: 40px;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.7); 
+    font-weight: bold;
+    pointer-events: none; 
+}
